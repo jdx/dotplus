@@ -7,6 +7,7 @@ Environment setup
 -----------------
 
 * Create `/config/application.yml` file with the following:
+
 ```yml
 ---
 TWITTER_KEY: YOUR_TWITTER_KEY
