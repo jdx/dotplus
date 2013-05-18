@@ -1,0 +1,7 @@
+- if current_user
+  .row
+    logged in as #{current_user.name}.
+- else
+  .row
+    = link_to "/auth/twitter?subdomain=#{subdomain}" do
+      = image_tag 'twitter-login.png'
