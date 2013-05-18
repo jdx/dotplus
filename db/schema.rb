@@ -11,18 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130518184518) do
+ActiveRecord::Schema.define(version: 20130518193430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: true do |t|
+    t.string   "subdomain",  null: false
+    t.string   "name",       null: false
+    t.string   "time_zone",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: true do |t|
     t.string   "name",       null: false
     t.string   "twitter",    null: false
     t.string   "email"
     t.string   "avatar",     null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

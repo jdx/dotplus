@@ -3,5 +3,5 @@ development:
   database: devplus
 
 test:
-  adapter: sqlite3
+  adapter: postgresql
   database: devplus_test

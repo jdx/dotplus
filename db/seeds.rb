@@ -1,7 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+City.create! subdomain: 'la', name: 'Los Angeles', time_zone: 'Pacific Time (US & Canada)'
+City.create! subdomain: 'sf', name: 'San Francisco', time_zone: 'Pacific Time (US & Canada)'
+City.create! subdomain: 'seattle', name: 'Seattle', time_zone: 'Pacific Time (US & Canada)'

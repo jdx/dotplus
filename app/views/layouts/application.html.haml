@@ -18,9 +18,8 @@
     %section.top-bar-section
       %ul.left
         %li.divider
-        %li= nav_city_link city: "Los Angeles", subdomain: "la"
-        %li= nav_city_link city: "San Francisco", subdomain: "sf"
-        %li= nav_city_link city: "Seattle", subdomain: "seattle"
+          - City.find_each do |city|
+            %li= nav_city_link city: city.name, subdomain: city.subdomain
       - if current_user
         %ul.right
           %li.divider

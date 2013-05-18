@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Dotplus::Application.config.secret_key_base = '8e4a9d79e7d379b3908f6d3e341940d7a42741594c566981c083fcfc3ab75681c2d2bd266706d379236d09ec998068f36685bf3e77cd818e2035052c9ebbaca6'
+Dotplus::Application.config.secret_key_base = ENV['SECRET_TOKEN'] || '8e4a9d79e7d379b3908f6d3e341940d7a42741594c566981c083fcfc3ab75681c2d2bd266706d379236d09ec998068f36685bf3e77cd818e2035052c9ebbaca6'
