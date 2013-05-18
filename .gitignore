@@ -18,3 +18,5 @@
 # Whatever
 .powrc
 .rvmrc
+
+config/application.yml
