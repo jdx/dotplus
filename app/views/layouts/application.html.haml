@@ -14,10 +14,16 @@
   %nav.top-bar.contain-to-grid
     %ul.title-area
       %li.name
-        %h1= link_to "dotplus", root_path
+        %h1= link_to "dotplus", root_url(subdomain: 'www')
     %section.top-bar-section
       - if current_user
+        %ul.left
+          %li.divider
+          %li= nav_city_link city: "Los Angeles", subdomain: "la"
+          %li= nav_city_link city: "San Francisco", subdomain: "sf"
+          %li= nav_city_link city: "Seattle", subdomain: "seattle"
         %ul.right
+          %li.divider
           %li.has-dropdown
             = link_to user_path(current_user) do
               = image_tag current_user.avatar, height: 20, width: 20, class: 'avatar'
