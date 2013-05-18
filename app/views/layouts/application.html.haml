@@ -16,12 +16,12 @@
       %li.name
         %h1= link_to "dotplus", root_url(subdomain: 'www')
     %section.top-bar-section
+      %ul.left
+        %li.divider
+        %li= nav_city_link city: "Los Angeles", subdomain: "la"
+        %li= nav_city_link city: "San Francisco", subdomain: "sf"
+        %li= nav_city_link city: "Seattle", subdomain: "seattle"
       - if current_user
-        %ul.left
-          %li.divider
-          %li= nav_city_link city: "Los Angeles", subdomain: "la"
-          %li= nav_city_link city: "San Francisco", subdomain: "sf"
-          %li= nav_city_link city: "Seattle", subdomain: "seattle"
         %ul.right
           %li.divider
           %li.has-dropdown
