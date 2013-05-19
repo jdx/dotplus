@@ -16,7 +16,11 @@ Dotplus::Application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   resources :events do
-    resources :attendees
+    resources :attendees do
+      collection do
+        get :rsvp
+      end
+    end
   end
   resources :users, path: '/'
 end

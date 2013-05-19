@@ -37,7 +37,7 @@
               %li= link_to "Logout", logout_path
         - else
           %li
-            = link_to "/auth/twitter?subdomain=#{subdomain}" do
+            = link_to "/auth/twitter?redirect_to=#{request.url}" do
               = image_tag 'twitter-login.png'
   - flash.each do |key, msg|
     .row= content_tag :div, msg, class: "alert-box #{key}"

@@ -1,5 +1,5 @@
 class AttendeesController < ApplicationController
-  def create
+  def rsvp
     Attendance.where(user_id: current_user, event_id: event).first_or_create!
     flash[:success] = "You have RSVP'ed"
     redirect_to event_path(event)
