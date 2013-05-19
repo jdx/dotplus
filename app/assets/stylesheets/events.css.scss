@@ -1,46 +1,56 @@
 #schedule {
-	margin-bottom: 0;
-	li {
-		border-bottom: 1px solid #bbb;
-		margin-bottom: 10px;
-		padding-bottom: 10px;
-		img {
-			float: left;
-			margin-right: 5px;
-			border-radius: 5px;
-		}
-		.title {
-			font-weight: bold;
-		}
-		.time {
-			color:#666;
-		}
-	}
-	li:last-child {
-		border-bottom: 0;
-		margin-bottom: 0;
-		padding-bottom: 0;
-	}
+  margin-bottom: 0;
+  li {
+    border-bottom: 1px solid #bbb;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    img {
+      float: left;
+      margin-right: 5px;
+      border-radius: 5px;
+    }
+    .title {
+      font-weight: bold;
+    }
+    .time {
+      color:#666;
+    }
+  }
+  li:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
 }
 
-.speaker-info {
-	img {
-		float: left;
-		margin-right: 5px;
-		border-radius: 3px;
-	}
-	.link {
-		margin-bottom: 10px;
-	}
+#speaker-info {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  img {
+    float: left;
+    margin-right: 5px;
+    border-radius: 3px;
+  }
+  .link {
+    display: inline;
+  }
 }
 
 .attendee-photo {
-	background-color: #e8e8e8;
-	padding: 5px;
-	border-radius: 3px;
-	border: 1px solid #bbb;
+  background-color: #e8e8e8;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  display: block;
+  text-align: center;
 
-	img {
-		width: 100%;
-	}
+  img {
+    width: 100%;
+  }
+
+  .handle {
+    font-size: 10px;
+    overflow: hidden;
+    color: #333;
+  }
 }

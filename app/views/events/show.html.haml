@@ -37,24 +37,27 @@
           = image_tag current_user.avatar
           .title Bar
           .time 9:00
-.row
-  %h3 Speakers
-  .large-6.columns.speaker-info
+.row#speaker-info
+  .large-6.columns
     = image_tag current_user.avatar
+    %h3 Greg Buckner
     %p Trying to leave an impact. Positive change. I'm an entrepreneur. Founder of @getRaft
     .link= link_to "www.getraft.com"
+    %h4 Talk: Noobie Talk
     %p I'm going to talk about learning how to ride a unicycle with Frank Lloyd Wright and Diane Sawyer.
   .large-6.columns.speaker-info
     = image_tag current_user.avatar
+    %h3 Jeff Dickey
     %p Trying to leave an impact. Positive change. I'm an entrepreneur. Founder of @getRaft
     .link= link_to "www.getraft.com"
+    %h4 Talk: Rails Deep Dive
     %p I'm going to talk about learning how to ride a unicycle with Frank Lloyd Wright and Diane Sawyer.
 .row
-  %h3 24 DPs attending
   .large-12.columns
+    %h3 24 attending
     %ul.large-block-grid-10
       - (1..24).each do
-        %li 
-          .attendee-photo
+        %li
+          = link_to user_path(current_user), class: 'attendee-photo' do
             = image_tag current_user.avatar
-            .handle @thebuck
+            .handle= "@#{current_user.twitter}"
