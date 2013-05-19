@@ -1,0 +1,59 @@
+.row
+  .panel.clearfix
+    .large-4.columns
+      %h3= Date.today.strftime('%A, %b %d')
+      %h4= Time.now.strftime('%l:%M %p')
+      %h5 Sponsor
+      %p General Assembly
+      %h5 Food
+      %p No food at the event. Wonderful vegan thai place kitty corner to GA.
+      .large.button.expand.round
+        RSVP
+    .large-4.columns
+      = link_to "http://maps.google.com" do
+        = image_tag "http://maps.googleapis.com/maps/api/staticmap?center=34.0194,-118.49&zoom=10&size=300x200&sensor=false"
+      %h4.subheader= link_to "General Assembly LA"
+      %p Park in the guest parking for 611 N. Brand. There are entrances on Brand, Doran, and Sanchez. GA will validate your parking.
+    .large-4.columns
+      %ul#schedule.no-bullet
+        %li
+          = image_tag current_user.avatar
+          .title Mingle 
+          .time 7:00
+        %li
+          = image_tag current_user.avatar
+          .title Noobie Talk
+          .time 7:15        
+        %li
+          = image_tag current_user.avatar
+          .title Rails Deep Dive
+          .time 7:30       
+        %li
+          = image_tag current_user.avatar
+          .title Hack
+          .time 8:15        
+        %li
+          = image_tag current_user.avatar
+          .title Bar
+          .time 9:00
+.row
+  %h3 Speakers
+  .large-6.columns.speaker-info
+    = image_tag current_user.avatar
+    %p Trying to leave an impact. Positive change. I'm an entrepreneur. Founder of @getRaft
+    .link= link_to "www.getraft.com"
+    %p I'm going to talk about learning how to ride a unicycle with Frank Lloyd Wright and Diane Sawyer.
+  .large-6.columns.speaker-info
+    = image_tag current_user.avatar
+    %p Trying to leave an impact. Positive change. I'm an entrepreneur. Founder of @getRaft
+    .link= link_to "www.getraft.com"
+    %p I'm going to talk about learning how to ride a unicycle with Frank Lloyd Wright and Diane Sawyer.
+.row
+  %h3 24 DPs attending
+  .large-12.columns
+    %ul.large-block-grid-10
+      - (1..24).each do
+        %li 
+          .attendee-photo
+            = image_tag current_user.avatar
+            .handle @thebuck

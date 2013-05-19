@@ -6,5 +6,5 @@ Dotplus::Application.routes.draw do
   get 'logout' => 'sessions#destroy'
 
   root to: 'pages#home', constraints: { subdomain: /www|^$/ }
-  root to: 'events#index', constraints: { subdomain: /.+/ }, as: :event
+  root to: 'events#show', constraints: { subdomain: /.+/ }, as: :event
 end
