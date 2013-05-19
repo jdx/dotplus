@@ -1,3 +1,8 @@
 .row
   .columns
     %h1= @sponsor.name
+    = link_to "Edit #{@sponsor.name}", edit_admin_sponsor_path(@sponsor), class: 'button'
+    %h2 Events
+    %ul
+      - @sponsor.events.each do |event|
+        %li= link_to event.start.to_date, admin_event_path(event)

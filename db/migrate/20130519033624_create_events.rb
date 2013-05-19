@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :start, null: false, index: true
       t.datetime :end, null: false
       t.references :sponsor, index: true
+      t.references :location, index: true
       t.references :organizer, index: true
       t.text :food
 

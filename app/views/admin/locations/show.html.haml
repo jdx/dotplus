@@ -1,0 +1,10 @@
+.row
+  .columns
+    %h2= @location.name
+    %p
+      %strong Address:
+      = @location.address
+    %p
+      %strong Notes:
+      = @location.notes
+    = link_to "Edit #{@location.name}", edit_admin_location_path(@location), class: 'button'

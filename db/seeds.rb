@@ -12,16 +12,20 @@ dickeyxxx = User.where(twitter: 'dickeyxxx').first_or_create! do |u|
   u.admin = true
 end
 
-ga = Sponsor.where(name: 'General Assembly LA').first_or_create! do |sponsor|
-  sponsor.address = '1520 2nd Street, Santa Monica, California 90401'
-  sponsor.notes = "Park in the guest parking for 611 N. Brand. There are entrances on Brand, Doran, and Sanchez. GA will validate your parking."
+ga_location = Location.where(name: 'General Assembly LA').first_or_create! do |location|
+  location.city = la
+  location.address = '1520 2nd Street, Santa Monica, California 90401'
+  location.notes = "Park in the guest parking for 611 N. Brand. There are entrances on Brand, Doran, and Sanchez. GA will validate your parking."
 end
+
+ga = Sponsor.where(name: 'General Assembly').first_or_create!
 
 if Event.count == 0
   event = la.events.build
   event.start = DateTime.now + 1.day
   event.end = DateTime.now + 1.day + 2.hours
   event.sponsor = ga
+  event.location = ga_location
   event.organizer = dickeyxxx
   event.save!
 end

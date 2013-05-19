@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130519034109) do
+ActiveRecord::Schema.define(version: 20130519055501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20130519034109) do
     t.datetime "start",        null: false
     t.datetime "end",          null: false
     t.integer  "sponsor_id"
+    t.integer  "location_id"
     t.integer  "organizer_id"
     t.text     "food"
     t.datetime "created_at",   null: false
@@ -48,23 +49,33 @@ ActiveRecord::Schema.define(version: 20130519034109) do
   end
 
   add_index "events", ["city_id"], name: "index_events_on_city_id", using: :btree
+  add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
   add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
   add_index "events", ["sponsor_id"], name: "index_events_on_sponsor_id", using: :btree
 
+  create_table "locations", force: true do |t|
+    t.string   "name",       null: false
+    t.string   "address",    null: false
+    t.integer  "city_id",    null: false
+    t.text     "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "locations", ["city_id"], name: "index_locations_on_city_id", using: :btree
+
   create_table "sponsors", force: true do |t|
     t.string   "name",       null: false
-    t.string   "address"
-    t.string   "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "talks", force: true do |t|
-    t.integer  "event_id",                    null: false
-    t.integer  "user_id"
+    t.integer  "event_id"
+    t.integer  "user_id",                     null: false
     t.boolean  "newbie",      default: false, null: false
-    t.string   "title"
-    t.text     "description"
+    t.string   "title",                       null: false
+    t.text     "description",                 null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

@@ -1,0 +1,9 @@
+.row
+  .columns.large-6
+    = simple_form_for @location, url: admin_location_path(@location) do |f|
+      %fieldset
+        %legend= @location.name
+        = f.input :name
+        = f.input :address
+        = f.input :notes
+        = f.button :submit

@@ -1,0 +1,5 @@
+.row
+  .columns
+    %ul
+      - @users.each do |user|
+        %li= link_to user.twitter, admin_user_path(user.twitter)

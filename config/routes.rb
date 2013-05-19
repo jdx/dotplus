@@ -7,6 +7,8 @@ Dotplus::Application.routes.draw do
     root to: 'events#index'
     resources :events
     resources :sponsors
+    resources :users
+    resources :locations
   end
 
   get 'auth/twitter/callback' => 'sessions#create'

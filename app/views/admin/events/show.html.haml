@@ -1,4 +1,22 @@
 .row
   .columns
-    = @event.start
+    %h2= @event.start.to_date
+    %p
+      %strong Start:
+      = @event.start
+    %p
+      %strong End:
+      = @event.end
+    %p
+      %strong Sponsor:
+      - if @event.sponsor
+        = link_to @event.sponsor.name, admin_sponsor_path(@event.sponsor)
+      - else
+        TBD
+    %p
+      %strong Location:
+      - if @event.location
+        = link_to @event.location.name, admin_location_path(@event.location)
+      - else
+        TBD
     = link_to "View on site", event_path(@event.start.to_date)
