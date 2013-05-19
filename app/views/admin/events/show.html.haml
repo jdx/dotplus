@@ -25,5 +25,17 @@
         = link_to @event.organizer.name, admin_user_path(@event.organizer)
       - else
         TBD
+    %p
+      %strong Beginner Talk:
+      - if @event.beginner_talk
+        = @event.beginner_talk.title
+      - else
+        TBD
+    %p
+      %strong Advanced Talk:
+      - if @event.advanced_talk
+        = @event.advanced_talk.title
+      - else
+        TBD
     = link_to "Edit", edit_admin_event_path(@event), class: 'button'
     = link_to "View on site", event_path(@event), class: 'button'

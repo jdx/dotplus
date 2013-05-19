@@ -9,6 +9,8 @@ class CreateEvents < ActiveRecord::Migration
       t.references :organizer, index: true
       t.text :food
       t.boolean :draft, default: true, null: false
+      t.references :beginner_talk, index: true
+      t.references :advanced_talk, index: true
 
       t.timestamps null: false
     end

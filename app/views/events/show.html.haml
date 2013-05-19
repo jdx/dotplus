@@ -49,14 +49,14 @@
             .time= e[:time].strftime('%l:%M')
 .row
   .columns
-    - twitter_text = "#dotplus a new kind of tech event"
+    - twitter_text = "a dev event for polyglots"
     - twitter_text = @event.advanced_talk.title if @event.advanced_talk
     %a.twitter-hashtag-button{ href: "https://twitter.com/intent/tweet?button_hashtag=dotplus_#{current_city.subdomain}&text=#{twitter_text}", data: { size: "large", related: "dotplus", url: request.url } } Tweet #dotplus_#{current_city.subdomain}
 .row#speaker-info
   .large-6.columns
-    = render partial: "talk", object: @event.newbie_talk
+    = render partial: "talk", object: @event.beginner_talk, as: :talk
   .large-6.columns
-    = render partial: "talk", object: @event.advanced_talk
+    = render partial: "talk", object: @event.advanced_talk, as: :talk
 - if @event.attendees.any?
   .row
     .large-12.columns
