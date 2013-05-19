@@ -1,0 +1,22 @@
+.row
+  .columns.large-6
+    = simple_form_for @event, url: admin_events_path do |f|
+      %fieldset
+        %legend New Event
+        .row
+          .columns.large-6
+            = f.input       :start
+          .columns.large-6
+            = f.input       :end
+        .row
+          .columns.large-6
+            = f.association :sponsor
+          .columns.large-6
+            = link_to "New Sponsor", new_admin_sponsor_path
+        .row
+          .columns.large-6
+            = f.association :organizer, label: "Organizer's Twitter Handle"
+        .row
+          .columns.large-12
+            = f.input       :food
+        = f.button      :submit

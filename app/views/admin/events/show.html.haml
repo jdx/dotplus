@@ -1,0 +1,4 @@
+.row
+  .columns
+    = @event.start
+    = link_to "View on site", event_path(@event.start.to_date)

@@ -1,0 +1,8 @@
+- content_for :content do
+  .row
+    .columns
+      %ul.inline-list
+        %li= link_to "Events", admin_events_path
+        %li= link_to "Sponsors", admin_sponsors_path
+  = yield
+= render template: 'layouts/application'

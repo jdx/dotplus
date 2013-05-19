@@ -1,0 +1,7 @@
+.row
+  .columns
+    %h2 #{current_city.name} Events
+    = link_to "New Event", new_admin_event_path, class: 'button'
+    %ul
+      - @events.each do |event|
+        %li= link_to event.start.to_date, admin_event_path(event)

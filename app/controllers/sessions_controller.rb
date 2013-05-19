@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
     self.current_user = User.where(twitter: auth_hash[:info][:nickname]).first_or_initialize
     current_user.name = auth_hash[:info][:name]
     current_user.avatar = auth_hash[:info][:image]
+    current_user.location = auth_hash[:info][:location]
+    current_user.url = auth_hash[:info][:urls]["Website"]
+    current_user.bio = auth_hash[:info][:description]
     current_user.save!
     flash[:success] = "Signed in from Twitter"
 

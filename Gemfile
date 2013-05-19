@@ -13,6 +13,7 @@ gem 'haml-rails'
 gem 'zurb-foundation'
 gem 'omniauth-twitter'
 gem 'dalli'
+gem 'simple_form', '~> 3.0.0.rc'
 
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'

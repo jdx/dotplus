@@ -7,5 +7,7 @@ class CreateCities < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :cities, :subdomain, unique: true
   end
 end
