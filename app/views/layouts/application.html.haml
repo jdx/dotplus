@@ -34,6 +34,8 @@
             %ul.dropdown
               - if current_user.admin?
                 %li= link_to "Admin", admin_root_path
+              - if current_user.talks.any?
+                %li= link_to "Talks", talks_path
               %li= link_to "Logout", logout_path
         - else
           %li
@@ -52,4 +54,4 @@
           %li= link_to "@jumph4x", "/users/jumph4x"
           %li= link_to "@thebucknerlife", "/users/thebucknerlife"
 
-</html>
+  = javascript_include_tag "//platform.twitter.com/widgets.js"

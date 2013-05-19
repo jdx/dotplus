@@ -8,6 +8,7 @@ class CreateEvents < ActiveRecord::Migration
       t.references :location, index: true
       t.references :organizer, index: true
       t.text :food
+      t.boolean :draft, default: true, null: false
 
       t.timestamps null: false
     end

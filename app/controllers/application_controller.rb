@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  
+
   around_filter :set_time_zone
 
   protected
@@ -27,5 +27,9 @@ class ApplicationController < ActionController::Base
 
   def set_time_zone(&block)
     Time.use_zone(current_city.try(:time_zone) || "UTC", &block)
+  end
+
+  def authenticate!
+    redirect_to "/auth/twitter?redirect_to#{request.referrer}" unless current_user
   end
 end

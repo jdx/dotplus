@@ -1,0 +1,10 @@
+- if @talk
+  = image_tag User.first.avatar
+  %h3 Greg Buckner
+  %p Trying to leave an impact. Positive change. I'm an entrepreneur. Founder of @getRaft
+  .link= link_to "www.getraft.com"
+  %h4 Talk: Noobie Talk
+  %p I'm going to talk about learning how to ride a unicycle with Frank Lloyd Wright and Diane Sawyer.
+- else
+  %h4 We need a talk!
+  = link_to "Suggest a talk", current_user ? new_talk_path : "/auth/twitter?redirect_to=#{new_talk_path}", class: 'button'

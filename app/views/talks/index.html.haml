@@ -1,0 +1,6 @@
+.row
+  .columns
+    %h2 Your Talks
+    %ul
+      - @talks.each do |talk|
+        %li= link_to talk.title, edit_talk_path(talk)

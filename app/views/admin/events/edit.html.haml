@@ -17,6 +17,11 @@
           .columns.large-6
             = f.association :organizer, label: "Organizer's Twitter Handle"
         .row
+          .columns.large-6
+            = f.association :newbie_talk
+          .columns.large-6
+            = f.association :advanced_talk
+        .row
           .columns.large-12
             = f.input       :food
         = f.button      :submit

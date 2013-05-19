@@ -1,0 +1,8 @@
+.row
+  .columns.large-6
+    = simple_form_for @talk, url: talk_path(@talk) do |f|
+      %fieldset
+        %legend= @talk.title
+        = f.input :title
+        = f.input :description
+        = f.submit "Update Talk", class: 'button'
