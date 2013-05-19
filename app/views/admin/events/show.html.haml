@@ -19,4 +19,11 @@
         = link_to @event.location.name, admin_location_path(@event.location)
       - else
         TBD
-    = link_to "View on site", event_path(@event.start.to_date)
+    %p
+      %strong Organizer:
+      - if @event.organizer
+        = link_to @event.organizer.name, admin_user_path(@event.organizer)
+      - else
+        TBD
+    = link_to "Edit", edit_admin_event_path(@event), class: 'button'
+    = link_to "View on site", event_path(@event), class: 'button'

@@ -8,6 +8,20 @@ module Admin
       @sponsor = Sponsor.find(params[:id])
     end
 
+    def new
+      @sponsor = Sponsor.new
+    end
+
+    def create
+      @sponsor = Sponsor.new(sponsor_params)
+      if @sponsor.save
+        flash[:success] = "Created #{@sponsor.name}"
+        redirect_to admin_sponsor_path(@sponsor)
+      else
+        render :new
+      end
+    end
+
     def edit
       @sponsor = Sponsor.find(params[:id])
     end
@@ -15,7 +29,8 @@ module Admin
     def update
       @sponsor = Sponsor.find(params[:id])
       if @sponsor.update_attributes(sponsor_params)
-        redirect_to admin_sponsor_path(@sponsor), success: "Updated #{@sponsor.name}"
+        flash[:success] = "Updated #{@sponsor.name}"
+        redirect_to admin_sponsor_path(@sponsor)
       else
         render :edit
       end
@@ -23,7 +38,7 @@ module Admin
 
     private
     def sponsor_params
-      params.require(:sponsor).permit(:name, :address, :notes)
+      params.require(:sponsor).permit(:name)
     end
   end
 end

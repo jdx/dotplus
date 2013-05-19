@@ -14,6 +14,7 @@ gem 'zurb-foundation'
 gem 'omniauth-twitter'
 gem 'dalli'
 gem 'simple_form', '~> 3.0.0.rc'
+gem 'geocoder'
 
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
@@ -21,6 +22,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'quiet_assets'
   gem 'figaro'
   gem 'awesome_print'
   gem 'better_errors'

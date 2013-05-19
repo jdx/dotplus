@@ -1,7 +1,7 @@
 Dotplus::Application.routes.draw do
 
   root to: 'pages#home', constraints: { subdomain: /www|^$/ }
-  root to: 'events#show', constraints: { subdomain: /.+/ }, as: :next_event
+  root to: 'events#index', constraints: { subdomain: /.+/ }, as: :next_event
 
   namespace :admin do
     root to: 'events#index'
@@ -15,6 +15,8 @@ Dotplus::Application.routes.draw do
   get 'auth/failure' => 'sessions#failure'
   get 'logout' => 'sessions#destroy'
 
-  resources :events
+  resources :events do
+    resources :attendees
+  end
   resources :users, path: '/'
 end

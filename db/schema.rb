@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20130519055501) do
     t.string   "address",    null: false
     t.integer  "city_id",    null: false
     t.text     "notes"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 20130519055501) do
   end
 
   create_table "talks", force: true do |t|
+    t.integer  "city_id",                     null: false
     t.integer  "event_id"
     t.integer  "user_id",                     null: false
     t.boolean  "newbie",      default: false, null: false
@@ -80,6 +83,7 @@ ActiveRecord::Schema.define(version: 20130519055501) do
     t.datetime "updated_at",                  null: false
   end
 
+  add_index "talks", ["city_id"], name: "index_talks_on_city_id", using: :btree
   add_index "talks", ["event_id"], name: "index_talks_on_event_id", using: :btree
   add_index "talks", ["user_id"], name: "index_talks_on_user_id", using: :btree
 

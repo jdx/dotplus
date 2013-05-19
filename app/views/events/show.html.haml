@@ -1,42 +1,47 @@
 .row
   .panel.clearfix
     .large-4.columns
-      %h3= Date.today.strftime('%A, %b %d')
-      %h4= Time.now.strftime('%l:%M %p')
+      %h3= @event.start.strftime('%A, %b %d')
+      %h4= @event.start.strftime('%l:%M %p')
       %h5 Sponsor
-      %p General Assembly
-      %h5 Food
-      %p No food at the event. Wonderful vegan thai place kitty corner to GA.
-      .large.button.expand.round
-        RSVP
+      - if @event.sponsor
+        %p= @event.sponsor.name
+      - else
+        %p
+          TBD
+          %br/
+          = link_to "Want to sponsor?", 'mailto:jeff@dickey.xxx'
+      - if @event.food.present?
+        %h5 Food
+        %p= @event.food
+      - if @event.organizer
+        %h5 Organizer
+        %p= link_to @event.organizer.name, user_path(@event.organizer)
+      - if @attending
+        %h5 You're registered!
+        = link_to "Cancel Reservation", event_attendee_path(@event, current_user), method: :delete
+      - else
+        = link_to "RSVP", event_attendees_path(@event), class: "large button expand round", method: :post
     .large-4.columns
-      = link_to "http://maps.google.com" do
-        = image_tag "http://maps.googleapis.com/maps/api/staticmap?center=34.0194,-118.49&zoom=10&size=300x200&sensor=false"
-      %h4.subheader= link_to "General Assembly LA"
-      %p Park in the guest parking for 611 N. Brand. There are entrances on Brand, Doran, and Sanchez. GA will validate your parking.
+      - if @event.location
+        = link_to "http://maps.google.com/?q=#{@event.location.address}" do
+          = image_tag "http://maps.googleapis.com/maps/api/staticmap?markers=#{@event.location.latitude},#{@event.location.longitude}&zoom=10&size=300x200&visual_refresh=true&sensor=false"
+        %h4.subheader= @event.location.name
+        %p= @event.location.notes
+      - else
+        %h4 Location TBD
+        = link_to "Want to host?", 'mailto:jeff@dickey.xxx', class: 'small button'
     .large-4.columns
       %h4 Schedule
       %ul#schedule.no-bullet
-        %li
-          = image_tag current_user.avatar
-          .title Mingle 
-          .time 7:00
-        %li
-          = image_tag current_user.avatar
-          .title Noobie Talk
-          .time 7:15        
-        %li
-          = image_tag current_user.avatar
-          .title Rails Deep Dive
-          .time 7:30       
-        %li
-          = image_tag current_user.avatar
-          .title Hack
-          .time 8:15        
-        %li
-          = image_tag current_user.avatar
-          .title Bar
-          .time 9:00
+        - @event.schedule.each do |e|
+          %li
+            - if e[:user]
+              = image_tag e[:user].avatar
+            - else
+              = image_tag 'logo.png'
+            .title= e[:what]
+            .time= e[:time].strftime('%l:%M')
 .row#speaker-info
   .large-6.columns
     = image_tag current_user.avatar
@@ -52,12 +57,13 @@
     .link= link_to "www.getraft.com"
     %h4 Talk: Rails Deep Dive
     %p I'm going to talk about learning how to ride a unicycle with Frank Lloyd Wright and Diane Sawyer.
-.row
-  .large-12.columns
-    %h3 24 attending
-    %ul.large-block-grid-10
-      - (1..24).each do
-        %li
-          = link_to user_path(current_user), class: 'attendee-photo' do
-            = image_tag current_user.avatar
-            .handle= "@#{current_user.twitter}"
+- if @event.attendees.any?
+  .row
+    .large-12.columns
+      %h3= pluralize(@event.attendees.count, "attendee")
+      %ul.large-block-grid-10
+        - @event.attendees.each do |user|
+          %li
+            = link_to user_path(user), class: 'attendee-photo' do
+              = image_tag user.avatar
+              .handle= "@#{user.twitter}"

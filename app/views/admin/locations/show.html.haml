@@ -2,6 +2,9 @@
   .columns
     %h2= @location.name
     %p
+      = link_to "http://maps.google.com/?q=#{@location.address}" do
+        = image_tag "http://maps.googleapis.com/maps/api/staticmap?markers=#{@location.latitude},#{@location.longitude}&visual_refresh=true&zoom=11&size=500x200&sensor=false"
+    %p
       %strong Address:
       = @location.address
     %p

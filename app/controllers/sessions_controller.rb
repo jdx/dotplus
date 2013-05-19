@@ -20,7 +20,8 @@ class SessionsController < ApplicationController
   def destroy
     self.current_user = nil
 
-    redirect_to root_path, success: "Signed out"
+    flash[:success] = "Signed out"
+    redirect_to root_path
   end
 
   private

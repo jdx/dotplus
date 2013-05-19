@@ -1,0 +1,7 @@
+.row
+  .columns.large-6
+    = simple_form_for @sponsor, url: admin_sponsors_path do |f|
+      %fieldset
+        %legend New Sponsor
+        = f.input :name
+        = f.button :submit

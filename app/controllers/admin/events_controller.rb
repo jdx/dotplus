@@ -16,9 +16,24 @@ module Admin
       @event = Event.new(event_params)
       @event.city = current_city
       if @event.save
-        redirect_to admin_event_path(@event), success: "Created event"
+        flash[:success] = "Created event"
+        redirect_to admin_event_path(@event)
       else
         render :new
+      end
+    end
+
+    def edit
+      @event = Event.find(params[:id])
+    end
+
+    def update
+      @event = Event.find(params[:id])
+      if @event.update_attributes(event_params)
+        flash[:success] = "Updated event"
+        redirect_to admin_event_path(@event)
+      else
+        render :edit
       end
     end
 

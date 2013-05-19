@@ -15,7 +15,8 @@ module Admin
     def update
       @location = Location.find(params[:id])
       if @location.update_attributes(location_params)
-        redirect_to admin_location_path(@location), success: "Updated #{@location.name}"
+        flash[:success] = "Updated #{@location.name}"
+        redirect_to admin_location_path(@location)
       else
         render :edit
       end
