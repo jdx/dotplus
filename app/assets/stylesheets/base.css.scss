@@ -14,11 +14,17 @@ h1, h2, h3, h4 {
   font-family: "Audiowide";
 }
 
+.top-bar {
+  box-shadow: 0 2px 0 $primary-color;
+}
+
 .top-bar-section .left {
   font-family: "Audiowide";
 }
 
 #footer {
+  border-top: 2px solid $primary-color;
+  padding-top: 20px;
   margin-top: 100px;
   font-family: "Audiowide";
 }

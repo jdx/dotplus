@@ -4,7 +4,6 @@
     margin-top: -30px;
     padding-top: 50px;
     padding-bottom: 70px;
-    margin-bottom: 40px;
     text-align: center;
     h1, h4 {
       color: #eee;
@@ -20,8 +19,27 @@
     }
   }
   .goals {
+    background-color: #333;
     font-weight: bold;
     font-size: 18px;
+    margin-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    color: white;
+    border-bottom: 2px solid $primary-color;
+    ul {
+      margin-top: 30px;
+    }
+    li {
+      text-align: center;
+    }
+    li:last-child {
+      border: 0;
+    }
+    h3 {
+      text-align: center;
+      color: white;
+    }
   }
   .schedule {
     li {
@@ -41,6 +59,9 @@
     }
   }
   .points {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid $primary-color;
     li > div {
       margin: 10px;
       border: 2px solid #333;
