@@ -12,6 +12,8 @@
   = csrf_meta_tag
 
 %body
+  - flash.each do |key, msg|
+    = content_tag :div, msg, class: "alert-box #{key}"
   %nav.top-bar
     %ul.title-area
       %li.name
@@ -41,8 +43,6 @@
           %li
             = link_to "/auth/twitter?redirect_to=#{request.url}" do
               = image_tag 'twitter-login.png'
-  - flash.each do |key, msg|
-    .row= content_tag :div, msg, class: "alert-box #{key}"
 
   = content_for?(:content) ? yield(:content) : yield
 

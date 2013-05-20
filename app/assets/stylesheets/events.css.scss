@@ -1,58 +1,77 @@
-#schedule {
-  margin-bottom: 0;
-  li {
-    border-bottom: 1px solid #bbb;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+#event {
+  .main-info {
+    background-color: #111;
+    margin-top: -28px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: white;
+    h3, h4, h5 {
+      color: white;
+    }
+  }
+
+  #schedule {
+    margin-bottom: 0;
+    li {
+      border-bottom: 1px solid #666;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      img {
+        float: left;
+        margin-right: 5px;
+        border-radius: 5px;
+        height: 48px;
+        width: 48px;
+      }
+      .title {
+        font-weight: bold;
+      }
+      .time {
+        color: #ccc;
+      }
+    }
+    li:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  #speaker-info {
+    background-color: #333;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    h4 {
+      font-weight: normal;
+      color: #eee;
+    }
     img {
       float: left;
       margin-right: 5px;
       border-radius: 5px;
-      height: 48px;
-      width: 48px;
     }
-    .title {
-      font-weight: bold;
-    }
-    .time {
-      color:#666;
+    .link {
+      display: inline;
     }
   }
-  li:last-child {
-    border-bottom: 0;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-}
 
-#speaker-info {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  img {
-    float: left;
-    margin-right: 5px;
-    border-radius: 5px;
-  }
-  .link {
-    display: inline;
-  }
-}
+  .attendee-photo {
+    background-color: #e8e8e8;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #bbb;
+    display: block;
+    text-align: center;
 
-.attendee-photo {
-  background-color: #e8e8e8;
-  padding: 5px;
-  border-radius: 3px;
-  border: 1px solid #bbb;
-  display: block;
-  text-align: center;
+    img {
+      width: 100%;
+    }
 
-  img {
-    width: 100%;
-  }
-
-  .handle {
-    font-size: 10px;
-    overflow: hidden;
-    color: #333;
+    .handle {
+      font-size: 10px;
+      overflow: hidden;
+      color: #333;
+    }
   }
 }
