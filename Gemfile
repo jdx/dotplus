@@ -3,6 +3,7 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0.rc1'
 
+gem 'unicorn'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'sass-rails', '~> 4.0.0.rc1'
@@ -22,6 +23,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'thin'
   gem 'quiet_assets'
   gem 'figaro'
   gem 'awesome_print'
