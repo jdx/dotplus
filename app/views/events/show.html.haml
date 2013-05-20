@@ -5,7 +5,7 @@
       %h4= @event.start.strftime('%l:%M %p')
       %h5 Sponsor
       - if @event.sponsor
-        %p= @event.sponsor.name
+        %p= link_to @event.sponsor.name, sponsor_path(@event.sponsor)
       - else
         %p
           TBD

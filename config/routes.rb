@@ -15,6 +15,7 @@ Dotplus::Application.routes.draw do
   get 'auth/failure' => 'sessions#failure'
   get 'logout' => 'sessions#destroy'
 
+  resources :sponsors
   resources :talks
   resources :events do
     resources :attendees do

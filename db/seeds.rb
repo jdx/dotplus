@@ -18,7 +18,9 @@ ga_location = Location.where(name: 'General Assembly LA').first_or_create! do |l
   location.notes = "Park in the guest parking for 611 N. Brand. There are entrances on Brand, Doran, and Sanchez. GA will validate your parking."
 end
 
-ga = Sponsor.where(name: 'General Assembly').first_or_create!
+ga = Sponsor.where(name: 'General Assembly').first_or_create! do |s|
+  s.twitter = 'GA'
+end
 
 if Event.count == 0
   event = la.events.build

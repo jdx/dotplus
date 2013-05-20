@@ -1,0 +1,5 @@
+.row
+  .columns
+    %h2= @sponsor.name
+    - if @sponsor.twitter
+      %h5= link_to "@#{@sponsor.twitter}", "http://twitter.com/#{@sponsor.twitter}"

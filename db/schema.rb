@@ -73,9 +73,12 @@ ActiveRecord::Schema.define(version: 20130519055501) do
 
   create_table "sponsors", force: true do |t|
     t.string   "name",       null: false
+    t.string   "twitter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "sponsors", ["twitter"], name: "index_sponsors_on_twitter", unique: true, using: :btree
 
   create_table "talks", force: true do |t|
     t.integer  "city_id",                     null: false
