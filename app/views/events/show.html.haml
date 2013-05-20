@@ -36,7 +36,7 @@
         %p.twitter
           - twitter_text = "a dev event for polyglots"
           - twitter_text = @event.advanced_talk.title if @event.advanced_talk
-          %a.twitter-hashtag-button{ href: "https://twitter.com/intent/tweet?button_hashtag=dotplus_#{current_city.subdomain}&text=#{twitter_text}", data: { size: "large", related: "dotplus", url: request.url } } Tweet #dotplus_#{current_city.subdomain}
+          %a.twitter-hashtag-button{ href: "https://twitter.com/intent/tweet?button_hashtag=dotplus_#{current_city.subdomain}&text=#{twitter_text}", data: { size: "large", related: "dotplusio", url: request.url } } Tweet #dotplus_#{current_city.subdomain}
       .large-4.columns
         - if @event.location
           = link_to "http://maps.google.com/?q=#{@event.location.address}" do
