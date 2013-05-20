@@ -16,3 +16,9 @@ TWITTER_SECRET: YOUR_TWITTER_SECRET
 ```
 
 * Run `rake db:seed`
+
+TODO
+----
+* Wall posts on people and events
+* Comments on wall postsk
+* Show events on profiles
