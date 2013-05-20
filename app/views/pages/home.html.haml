@@ -1,38 +1,65 @@
-.row
-  .large-12.columns
-    %h1 dotplus
-    %h4.subheader We are a group of mobile/web/hardware developers that come together once a month to talk about software development.
-.row
-  .large-6.columns
-    %h5 Our goals are:
-    %ul.no-bullet
-      %li Everyone learns something.
-      %li Everyone has fun.
-      %li Everyone meets somebody new.
-  .large-6.columns
-    %h5 A typical night will look like the following:
-    %ul.no-bullet
-      %li 7:00 - Registration/mingling
-      %li 7:15 - Short presentation on a beginner topic (preferably by a beginner)
-      %li 7:30 - More advanced presentation. Could be a deep code-dive into Rails, story about an open-source project, or demo of a raspberry pi setup.
-      %li 8:15 - Hacking. We encourage attendees to bring any coding problems, or interesting code to look at. We'll break the group up into smaller groups for hacking or just chatting.
-      %li 9:00 - End of official meetup, but small group heads down to the bar.
-.row
-  .large-12.columns
-    %h3 How is this different than a regular meetup?
-    %p We will constantly be searching to find the right formula. That will vary by group and location, but we want to reflect on our past sessions to find out what is working well and what is it. We will have regular meeting with the organizers in different cities to find that formula.
-    %h4 Beginner focused talk
-    %p Just a quick one to start the night off. This is to give new people experience giving presentations, and so beginners and advanced folk alike will gain something from the meetup.
-    %h4 Mix of hack-night and presentations
-    %p Presentations are what get people to come to a meetup and what give people topics to chat about. Pairing on problems is an incredibly powerful way to meet new people. Developers are not only comfortable around programming, but they really enjoy it as well. It's also yet another way to get people to learn something new.
-    %h4 Discourage recruiters and job hunters
-    %p This isn't a place to get a job, it's a place to make friends and learn new things.
-    %h4 The app
-    %p The real power of rubyragers comes from the app that tags along with it. Meetup.com is the status quo today, but it has many problems that I won't get into, but I will get into what dotplus will do differently.
-    %h4 Twitter Authentication
-    %p Probably solely. Using this not only greatly simplifies registering for the event, but also allows us to print nametags out with everyone's name and handle. This doubles as the check-in process and allows the organizer to know who showed up and who didn't simply by people taking their nametags. Also, after the event, we can send out a page that allows people to see a list of the attendees to the event along with follow buttons so they can easily reconnect with their new friends.
-    %h4 Achievements
-    %p Let people show off attending 3 meetups in a row. Let people show off speaking at events.
-    %h4 Speaker tools
-    %p Let them link their slides to the site. Edit their bio. Edit the abstract. Also, meetup.com shows the organizer as the top person at an event, we show the speaker.
-    %p Spreading organically. The fact the group is not on meetup.com will result in a lower attendance rate, worse SEO, and make the group difficult to find for those new to the area/software. I actually see these as advantages. Meetups can often be a group of strangers. If everyone that comes has someone else in the group they know, they will be more inclined to socialize and feel more comfortable overall having mutual friends. It will probably result in a smaller group, but a closer one.
+#home
+  .title
+    .row
+      .large-12.columns
+        %h1 dotplus
+        %h4.subheader We are a group of mobile/web/hardware developers that come together once a month to talk about software development.
+        .social
+          .twitter
+            %a.twitter-share-button{ href: "https://twitter.com/share", data: { url: "http://dotplus.io", text: "dotplus: a new kind of tech meetup", via: "dotplus", size: "small", related: "dickeyxxx" } } Tweet
+          .facebook
+            .fb-like{ data: { href: "http://dotplus.io", layout: "button_count" } }
+  .row
+    .large-8.columns
+      %h3 Typical Schedule
+      %ul.no-bullet.schedule
+        %li
+          .title 7:00 - Registration
+          .desc A sweet nametag will be waiting for you with your twitter handle, company and avatar.
+        %li
+          .title 7:15 - Beginner Talk
+          .desc We'll have a talk by someone new to programming. Having beginners speak is a great way to get new speakers in our community and their excitement reminds us all of the joy we had when we started.
+        %li
+          .title 7:30 - Advanced Talk
+          .desc Our advanced speaker will tell us about something new they're playing around with. We look for talks that are fun and thought-provoking.
+        %li
+          .title 8:15 - Hack
+          .desc Participation is key to enjoying your time at dotplus. You'll be expected to pair with a stranger on a problem, likely in a language you rarely use. Don't worry, it'll only be a few minutes.
+        %li
+          .title 9:00 - Bar
+          .desc We'll set up a bar for people to head down to after the event. As the event will only be 2 hours, it'll be a great time to chat in a smaller group about the night.
+    .large-4.columns
+      %h3 Our Goals
+      %ul.no-bullet.goals
+        %li Everyone learns something.
+        %li Everyone has fun.
+        %li Everyone meets somebody new.
+  .row
+    .large-12.columns
+      %h3 What do we do differently?
+      %p We will constantly be searching to find the right formula. That will vary by group and location. We will have regular meeting with the organizers in different cities to find the right formulas.
+    %ul.points.large-block-grid-3
+      %li
+        %div
+          %h5 Beginner focused talk
+          %p Often beginners feel inferior to the experts in a group. Since we advocate learning, we showcase our beginners and let them show us cool stuff just like the experts.
+      %li
+        %div
+          %h5 Talks + Hacks
+          %p Presentations offer topics to chat about during a meetup. Pairing on problems is an incredibly powerful way to meet new people.
+      %li
+        %div
+          %h5 Discourage recruiters
+          %p This isn't a place to get a job, it's a place to make friends and learn new things. Plenty of other meetups are great for finding a new job.
+      %li
+        %div
+          %h5 No more business cards
+          %p Twitter is a great way to stay in contact with your new friends. After the event, we'll send out an email allowing you to easily follow anyone from the event.
+      %li
+        %div
+          %h5 Kudos and Achievements
+          %p Thank people for speaking or offering help. Track the events you attend or speak at. We'll give you a page right here on dotplus to see it.
+      %li
+        %div
+          %h5 Speaker tools
+          %p Fix your bio. Tweak your abstract. Post your slides after the event. No more exchanging emails with the organizers. No more mislabeled presentations.

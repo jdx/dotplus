@@ -1,0 +1,60 @@
+#home {
+  > .title {
+    background-color: #111;
+    margin-top: -30px;
+    padding-top: 50px;
+    padding-bottom: 70px;
+    margin-bottom: 40px;
+    text-align: center;
+    h1, h4 {
+      color: #eee;
+    }
+    .social {
+      margin-top: 40px;
+      .twitter, .facebook {
+        display: inline-block;
+      }
+      .twitter {
+        width: 80px;
+      }
+    }
+  }
+  .goals {
+    font-weight: bold;
+  }
+  .schedule {
+    li {
+      border-bottom: 1px solid #bbb;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+    li:last-child {
+      border-bottom: 0;
+    }
+    .title {
+      font-weight: bold;
+    }
+    .desc {
+      color: #666;
+      font-size: 14px;
+    }
+  }
+  .points {
+    li > div {
+      margin: 10px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      height: 200px;
+      h5 {
+        margin-top: 0;
+        border-bottom: 1px solid #333;
+        padding: 5px 10px;
+        background-color: #333;
+        color: white;
+      }
+      p {
+        padding: 5px 10px;
+      }
+    }
+  }
+}
