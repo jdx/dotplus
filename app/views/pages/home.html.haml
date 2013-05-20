@@ -1,3 +1,9 @@
+- content_for :facebook_meta do
+  %meta{ property: "og:url", content: request.url }
+  %meta{ property: "og:title", content: "dotplus" }
+  %meta{ property: "og:image", content: image_path('logo.png') }
+  %meta{ property: "og:type", content: 'webpage' }
+  %meta{ property: "og:description", content: 'A new kind of tech event.' }
 #home
   .title
     .row
@@ -6,7 +12,7 @@
         %h4.subheader We are a group of mobile/web/hardware developers that come together to talk about software development.
         .social
           .twitter
-            %a.twitter-share-button{ href: "https://twitter.com/share", data: { url: "http://dotplus.io", text: "dotplus: a new kind of tech meetup", via: "dotplusio", size: "small", related: "dickeyxxx" } } Tweet
+            %a.twitter-share-button{ href: "https://twitter.com/share", data: { url: "http://dotplus.io", text: "dotplus: a new kind of tech event", via: "dotplusio", size: "small", related: "dickeyxxx" } } Tweet
           .facebook
             .fb-like{ data: { href: "http://dotplus.io", layout: "button_count" } }
   .goals

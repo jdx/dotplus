@@ -11,6 +11,14 @@
   = favicon_link_tag 'logo.png'
   = csrf_meta_tag
 
+  %meta{ property: "fb:app_id", content: "444965515591609" }
+  %meta{ property: "og:site_name", content: "dotplus" }
+  - if content_for?(:facebook_meta)
+    = yield(:facebook_meta)
+  - else
+    %meta{ property: "og:url", content: request.url }
+    %meta{ property: "og:title", content: "dotplus" }
+
 %body
   - flash.each do |key, msg|
     = content_tag :div, msg, class: "alert-box #{key}"
