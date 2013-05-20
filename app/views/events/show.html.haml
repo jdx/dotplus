@@ -16,8 +16,12 @@
           %h5 Food
           %p= @event.food
         - if @event.organizer
-          %h5 Organizer
-          %p= link_to @event.organizer.name, user_path(@event.organizer)
+          .organizer
+            %h5 Organizer
+            %p
+              = link_to user_path(@event.organizer) do
+                = image_tag @event.organizer.avatar
+                @#{@event.organizer.name}
         %p.registration
           - if @attending
             %h5 You're registered!

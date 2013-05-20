@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :location
       t.string :url
       t.boolean :admin, null: false, default: false
+      t.string :cities, array: true, null: false, default: []
 
       t.timestamps null: false
     end

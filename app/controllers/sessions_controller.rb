@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     current_user.save!
     flash[:success] = "Signed in from Twitter"
 
-    redirect_to params[:redirect_to]
+    redirect_to params[:redirect_to] || root_path
   end
 
   def failure

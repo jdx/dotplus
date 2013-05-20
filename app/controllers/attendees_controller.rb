@@ -1,6 +1,7 @@
 class AttendeesController < ApplicationController
   def rsvp
     Attendance.where(user_id: current_user, event_id: event).first_or_create!
+    current_user.add_city(current_city.subdomain)
     flash[:success] = "You have RSVP'ed"
     redirect_to event_path(event)
   end

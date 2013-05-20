@@ -2,5 +2,18 @@
   .columns
     %p We're planning on starting a #{current_city.name} event soon.
     %p If you're interested in sponsoring, hosting or speaking, email Jeff Dickey at #{ link_to "jeff@dickey.xxx", mailto: 'mailto:jeff@dickey.xxx' }.
-    %p Sign up if you want to receive updates on any #{current_city.name} events.
-    /= form_for 
+    - if current_user && current_user.cities.include?(current_city.subdomain)
+      %p
+        %strong You're receiving updates for #{current_city.name}
+    - elsif current_user
+      %p Sign up if you want to receive updates on any #{current_city.name} events.
+      = form_for current_user do |f|
+        = f.label :email, "Email"
+        = f.text_field :email
+        = f.hidden_field :city, value: current_city.subdomain
+        = f.submit "Sign up", class: 'button'
+    - else
+      %p
+        %strong
+          = link_to "Sign up", "/auth/twitter"
+          if you want to receive updates on any #{current_city.name} events.

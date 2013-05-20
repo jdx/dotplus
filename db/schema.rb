@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20130519055501) do
     t.string   "location"
     t.string   "url"
     t.boolean  "admin",      default: false, null: false
+    t.string   "cities",     default: [],    null: false, array: true
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end

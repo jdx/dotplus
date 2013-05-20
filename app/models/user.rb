@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def to_param
     twitter
   end
+
+  def add_city(city_code)
+    self.update_attribute(:cities, cities + [city_code]) unless cities.include?(city_code)
+  end
 end
