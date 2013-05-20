@@ -15,5 +15,6 @@
 //= require foundation
 //= require turbolinks
 //= require facebook
+//= require google
 
 $(function(){ $(document).foundation(); });
