@@ -18,6 +18,7 @@ Dotplus::Application.routes.draw do
   resources :sponsors
   resources :talks
   resources :events do
+    resources :posts
     resources :attendees do
       collection do
         get :rsvp

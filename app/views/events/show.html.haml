@@ -73,3 +73,22 @@
               = link_to user_path(user), class: 'attendee-photo' do
                 = image_tag user.avatar
                 .handle= "@#{user.twitter}"
+  .posts
+    .row
+      .columns
+        %h3 Event Wall
+        = simple_form_for Post.new, url: event_posts_path(@event) do |f|
+          = f.input :body, label: false
+          = f.submit "Post", class: 'button'
+        %ul
+          - @event.posts.order('-id').each do |post|
+            %li
+              = image_tag post.user.avatar, class: 'avatar'
+              .post
+                .user
+                  = link_to post.user.name, user_path(post.user)
+                  - if @event.organizer == post.user
+                    (organizer)
+                  - elsif @event.organizer == post.user
+                    (speaker)
+                .body= markdown post.body

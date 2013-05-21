@@ -17,6 +17,7 @@ gem 'dalli'
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'geocoder'
 gem 'sentry-raven'
+gem 'redcarpet'
 
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'

@@ -7,6 +7,7 @@ class Event < ActiveRecord::Base
   belongs_to :advanced_talk, class_name: "Talk"
   has_many :attendances
   has_many :attendees, through: :attendances, source: :user
+  has_many :posts, as: :postable
 
   scope :by_date, -> { order(:start) }
 
