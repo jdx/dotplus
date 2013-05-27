@@ -25,5 +25,7 @@ Dotplus::Application.routes.draw do
       end
     end
   end
-  resources :users, path: '/'
+  resources :users, path: '/' do
+    resources :posts
+  end
 end

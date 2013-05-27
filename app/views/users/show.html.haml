@@ -6,3 +6,18 @@
     %p= user.bio
     %p= link_to user.url, user.url
     %h3 Attended #{pluralize(user.attended_events.count, "event")}
+#wall
+  .row
+    .columns
+      - if current_user != user
+        = simple_form_for Post.new, url: user_posts_path(user) do |f|
+          = f.input :body, label: false
+          = f.submit "Post", class: 'button'
+      %ul
+        - user.posts.order('-id').each do |post|
+          %li
+            = image_tag post.user.avatar, class: 'avatar'
+            .post
+              .user
+                = link_to post.user.name, user_path(post.user)
+              .body= markdown post.body

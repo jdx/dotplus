@@ -1,0 +1,21 @@
+#wall {
+  margin-top: 50px;
+  > .row > .columns > ul {
+    list-style-type: none;
+    > li {
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      > .avatar {
+        border-radius: 5px;
+        float: left;
+      }
+      > .post {
+        padding-left: 60px;
+      }
+    }
+    > li:last-child {
+      border-bottom: 0;
+    }
+  }
+}

@@ -77,9 +77,10 @@
     .row
       .columns
         %h3 Event Wall
-        = simple_form_for Post.new, url: event_posts_path(@event) do |f|
-          = f.input :body, label: false
-          = f.submit "Post", class: 'button'
+        - if current_user
+          = simple_form_for Post.new, url: event_posts_path(@event) do |f|
+            = f.input :body, label: false
+            = f.submit "Post", class: 'button'
         %ul
           - @event.posts.order('-id').each do |post|
             %li
