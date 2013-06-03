@@ -6,7 +6,7 @@ http://dotplus.io
 Environment setup
 -----------------
 
-* Setup app with Pow. Because of the heavy use of subdomains, I don't think there is another way to run the app.
+* Simply setup app with Pow or see the custom DNS settings steps below
 * Create `/config/application.yml` file with the following:
 
 ```yaml
@@ -16,6 +16,20 @@ TWITTER_SECRET: YOUR_TWITTER_SECRET
 ```
 
 * Run `rake db:seed`
+
+Custom DNS setup
+----------------
+
+* In terminal open up the hosts file like so ```sudo vim /etc/hosts```
+* Add the following entries
+
+```
+127.0.0.1 sf.dotplus.dev
+127.0.0.1 la.dotplus.dev
+127.0.0.1 seattle.dotplus.dev
+```
+
+* Caveat: you will have to append the port [3000] unlike the Pow setup
 
 TODO
 ----
