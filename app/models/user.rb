@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
     elsif event.organizer_id == id
       'organizer'
     end
+  end
 
+  def last_name
+    name.split(' ', 2).last
   end
 end
