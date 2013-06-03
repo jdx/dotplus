@@ -12,7 +12,7 @@ class EventPdf < Prawn::Document
     margins[3] += GUTTER/2
     super(:margin => margins)
 
-    event.attendees.each_slice(8).each_with_index do |users,i|
+    event.attendees.sort_by(&:last_name).each_slice(8).each_with_index do |users,i|
       start_new_page unless i==0
 
       sheet(users)
@@ -35,7 +35,7 @@ class EventPdf < Prawn::Document
 
   def sheet users
     users.each_with_index do |user, i|
-      column = i > 3 ? 0 : 1
+      column = i > 3 ? 1 : 0
       origin = [column * bounds.width/2, bounds.height - ((i % 4) * (167.76 + VGUTTER))]
       bounding_box(origin, width: bounds.width/2 - GUTTER, height: 167.76) do
         stroke_bounds
