@@ -34,7 +34,6 @@ Custom DNS setup
 
 TODO
 ----
-* Nametags
 * Show events on profiles
 * Email notifications
 * Post-event page (way to follow people after event)
