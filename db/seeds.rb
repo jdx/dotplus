@@ -22,12 +22,21 @@ ga = Sponsor.where(name: 'General Assembly').first_or_create! do |s|
   s.twitter = 'GA'
 end
 
-if Event.count == 0
-  event = la.events.build
-  event.start = DateTime.now + 1.day
-  event.end = DateTime.now + 1.day + 2.hours
-  event.sponsor = ga
-  event.location = ga_location
-  event.organizer = dickeyxxx
-  event.save!
+event = la.events.first_or_initialize
+event = la.events.build
+event.start = DateTime.now + 1.day
+event.end = DateTime.now + 1.day + 2.hours
+event.sponsor = ga
+event.location = ga_location
+event.organizer = dickeyxxx
+event.save!
+
+users = (event.attendees.count..50).map do
+  user = User.new(
+    name: Forgery(:name).full_name,
+    twitter: "#{Forgery(:internet).user_name}_#{Random.rand(100)}",
+    avatar: '',
+    email: Forgery(:internet).email_address,
+  )
+  event.attendees << user
 end

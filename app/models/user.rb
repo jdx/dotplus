@@ -15,4 +15,14 @@ class User < ActiveRecord::Base
   def add_city(city_code)
     self.update_attribute(:cities, cities + [city_code]) unless cities.include?(city_code)
   end
+
+  def event_role event
+    if event.beginner_speaker == self ||
+       event.advanced_speaker == self
+      'speaker'
+    elsif event.organizer_id == id
+      'organizer'
+    end
+
+  end
 end

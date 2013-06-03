@@ -19,6 +19,14 @@ TWITTER_SECRET: YOUR_TWITTER_SECRET
 
 TODO
 ----
-* Wall posts on people and events
-* Comments on wall postsk
+* Nametags
 * Show events on profiles
+* Email notifications
+* Post-event page (way to follow people after event)
+* embed.ly integration
+
+Doesn't need to be done until after an event
+* In admin, be able to mark attendees that they came
+
+Maybe
+* Comments on wall posts (maybe)

@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
   belongs_to :location
   belongs_to :beginner_talk, class_name: "Talk"
   belongs_to :advanced_talk, class_name: "Talk"
+  has_one :beginner_speaker, through: :beginner_talk, source: :user
+  has_one :advanced_speaker, through: :advanced_talk, source: :user
   has_many :attendances
   has_many :attendees, through: :attendances, source: :user
   has_many :posts, as: :postable
@@ -24,4 +26,5 @@ class Event < ActiveRecord::Base
       { what: "Bar", time: self.end },
     ]
   end
+
 end
