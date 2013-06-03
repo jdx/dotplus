@@ -20,6 +20,7 @@ TWITTER_SECRET: YOUR_TWITTER_SECRET
 Custom DNS setup
 ----------------
 
+* **SKIP THIS IF USING POW**
 * In terminal open up the hosts file like so ```sudo vim /etc/hosts```
 * Add the following entries
 
