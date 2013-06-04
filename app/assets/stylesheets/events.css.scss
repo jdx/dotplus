@@ -18,6 +18,12 @@
         margin-right: 5px;
       }
     }
+    .social {
+      > .twitter, > .facebook {
+        display: inline;
+        margin-right: 10px;
+      }
+    }
   }
 
   #schedule {

@@ -27,4 +27,12 @@ class Event < ActiveRecord::Base
     ]
   end
 
+  def description
+    date = start.strftime('%A, %b %d')
+    if advanced_talk || beginner_talk
+      "On #{date}, #{(advanced_talk || beginner_talk).user.name} will present his talk \"#{(advanced_talk || beginner_talk).title}\""
+    else
+      "On #{date}, a group of mobile/web/hardware developers will meet to teach each other cool stuff."
+    end
+  end
 end
