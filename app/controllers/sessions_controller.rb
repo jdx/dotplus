@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     current_user.twitter_oauth_token_secret = auth_hash[:credentials][:secret]
     current_user.avatar = current_user.twitter_client.user.profile_image_url(:original)
     current_user.location = auth_hash[:info][:location]
-    current_user.url = auth_hash.extra.raw_info.entities.url.urls.first.try(:expanded_url)
+    current_user.url = auth_hash.extra.raw_info.entities.url.try(:urls).try(:first).try(:expanded_url)
     current_user.bio = auth_hash[:info][:description]
     current_user.save!
     flash[:success] = "Signed in from Twitter"
