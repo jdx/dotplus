@@ -12,11 +12,12 @@
       color: white;
     }
     .organizer {
-      > img {
+      img {
         height: 30px;
         border-radius: 5px;
         margin-right: 5px;
         width: 70px;
+        height: 70px;
       }
     }
     .social {
@@ -73,6 +74,8 @@
       margin-right: 10px;
       border-radius: 5px;
       margin-top: 5px;
+      width: 70px;
+      height: 70px;
     }
   }
 
