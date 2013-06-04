@@ -49,7 +49,7 @@ module Admin
 
     private
     def event_params
-      params.require(:event).permit(:start, :end, :sponsor_id, :organizer, :food, :beginner_talk_id, :advanced_talk_id)
+      params.require(:event).permit(:start, :end, :sponsor_id, :organizer_id, :food, :beginner_talk_id, :advanced_talk_id)
     end
   end
 end
