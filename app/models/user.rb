@@ -28,4 +28,13 @@ class User < ActiveRecord::Base
   def last_name
     name.split(' ', 2).last
   end
+
+  def twitter_client
+    Twitter::Client.new(
+      consumer_key: ENV['TWITTER_KEY'],
+      consumer_secret: ENV['TWITTER_SECRET'],
+      oauth_token: twitter_oauth_token,
+      oauth_token_secret: twitter_oauth_token_secret
+    )
+  end
 end

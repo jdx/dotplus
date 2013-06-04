@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130521060538) do
+ActiveRecord::Schema.define(version: 20130604021757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,17 +106,19 @@ ActiveRecord::Schema.define(version: 20130521060538) do
   add_index "talks", ["user_id"], name: "index_talks_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name",                       null: false
-    t.string   "twitter",                    null: false
+    t.string   "name",                                       null: false
+    t.string   "twitter",                                    null: false
     t.string   "email"
-    t.string   "avatar",                     null: false
+    t.string   "avatar",                                     null: false
     t.string   "bio"
     t.string   "location"
     t.string   "url"
-    t.boolean  "admin",      default: false, null: false
-    t.string   "cities",     default: [],    null: false, array: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "admin",                      default: false, null: false
+    t.string   "cities",                     default: [],    null: false, array: true
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
+    t.string   "twitter_oauth_token"
+    t.string   "twitter_oauth_token_secret"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
