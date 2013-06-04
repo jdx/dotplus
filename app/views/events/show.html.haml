@@ -45,7 +45,7 @@
             = link_to "RSVP", current_user ? rsvp_event_attendees_path(@event) : "/auth/twitter?redirect_to=#{rsvp_event_attendees_url(@event)}", class: "large button expand round"
         .social
           .facebook
-            .fb-like{ data: { href: "http://dotplus.io/la", send: "false", layout: "button_count" } }
+            .fb-like{ data: { href: event_url(@event), send: "false", layout: "button_count" } }
           %p.twitter
             - twitter_text = "a dev event for polyglots"
             - twitter_text = @event.advanced_talk.title if @event.advanced_talk
