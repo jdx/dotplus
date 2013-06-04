@@ -35,7 +35,7 @@ class Event < ActiveRecord::Base
       desc = "On #{date}, a group of mobile/web/hardware developers will meet to teach each other cool stuff."
     end
 
-    desc = desc + " at #{location.name}"
+    desc = desc + " at #{location.name}" if location
 
     desc
   end
