@@ -22,8 +22,12 @@
     }
     .social {
       > .twitter, > .facebook {
-        display: inline;
+        display: inline-block;
         margin-right: 10px;
+      }
+      > .facebook > div {
+        width: 75px;
+        height: 20px;
       }
     }
   }
