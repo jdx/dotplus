@@ -4,7 +4,8 @@
       = image_tag user.avatar
       = user.twitter
     %p= user.bio
-    %p= link_to user.url, user.url
+    - if user.url
+      %p= link_to user.url, user.url
     %h3 Attended #{pluralize(user.attended_events.count, "event")}
 #wall
   .row
