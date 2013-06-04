@@ -93,6 +93,9 @@ GEM
     minitest (4.7.4)
     multi_json (1.7.3)
     multipart-post (1.2.0)
+    nilify_blanks (1.0.1)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
     oauth (0.4.7)
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
@@ -215,6 +218,7 @@ DEPENDENCIES
   geocoder
   haml-rails
   jquery-rails
+  nilify_blanks
   omniauth-twitter
   pg
   prawn
