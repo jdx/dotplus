@@ -2,7 +2,11 @@
   = image_tag talk.user.avatar
   .info
     %h4= talk.user.name
-    %p #{talk.user.bio} &bull; #{link_to talk.user.url}
+    %p
+      = talk.user.bio
+      - if talk.user.url
+        &bull;
+        = link_to talk.user.url
   %h4= talk.title
   %p= raw talk.description
   - if current_user == talk.user
