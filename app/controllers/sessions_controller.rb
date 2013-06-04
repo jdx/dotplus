@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     current_user.name = auth_hash[:info][:name]
     current_user.avatar = auth_hash[:info][:image]
     current_user.location = auth_hash[:info][:location]
-    current_user.url = auth_hash[:info][:urls]["Website"]
+    current_user.url = auth_hash.extra.raw_info.entities.url.urls.first.try(:expanded_url)
     current_user.bio = auth_hash[:info][:description]
     current_user.save!
     flash[:success] = "Signed in from Twitter"

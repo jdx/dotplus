@@ -60,8 +60,10 @@
   #speaker-info
     .row
       .large-6.columns
+        %h2 Beginner Speaker
         = render partial: "talk", object: @event.beginner_talk, as: :talk
       .large-6.columns
+        %h2 Advanced Speaker
         = render partial: "talk", object: @event.advanced_talk, as: :talk
   - if @event.attendees.any?
     .row

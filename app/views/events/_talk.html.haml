@@ -1,9 +1,9 @@
 - if defined? talk
   = image_tag talk.user.avatar
-  %h4= talk.user.name
-  %p= talk.user.bio
-  .link= link_to talk.user.url
-  %h4 Talk: #{talk.title}
+  .info
+    %h4= talk.user.name
+    %p #{talk.user.bio} &bull; #{link_to talk.user.url}
+  %h4= talk.title
   %p= raw talk.description
   - if current_user == talk.user
     = link_to "Edit", edit_talk_path(talk), class: 'button'
