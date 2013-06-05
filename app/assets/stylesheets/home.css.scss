@@ -77,4 +77,11 @@
       }
     }
   }
+  .badges {
+    > .columns > ul > li > h3 {
+      > i, > span {
+        font-size: 40px;
+      }
+    }
+  }
 }
