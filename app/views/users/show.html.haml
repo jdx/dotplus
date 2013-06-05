@@ -6,7 +6,16 @@
     %p= user.bio
     - if user.url
       %p= link_to user.url, user.url
-    %h3 Attending #{pluralize(user.attended_events.count, "event")}
+- if user.badges.any?
+  .badges.row
+    .columns
+      %h3 Badges
+      %ul
+        - user.badges.each do |badge|
+          %h3
+            %i{ class: badge.icon }
+            = badge.name
+          %p= badge.description
 #wall
   .row
     .columns

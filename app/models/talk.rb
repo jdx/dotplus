@@ -1,5 +1,4 @@
 class Talk < ActiveRecord::Base
-  belongs_to :event
   belongs_to :city
   belongs_to :user
 

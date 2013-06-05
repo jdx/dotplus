@@ -69,6 +69,8 @@ GEM
     figaro (0.6.4)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    foreigner (1.4.1)
+      activerecord (>= 3.0.0)
     forgery (0.5.0)
     geocoder (1.1.8)
     haml (4.0.2)
@@ -214,6 +216,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dalli
   figaro
+  foreigner
   forgery
   geocoder
   haml-rails

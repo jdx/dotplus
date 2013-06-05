@@ -22,6 +22,7 @@ gem 'prawn'
 gem 'twitter'
 gem 'forgery'
 gem 'nilify_blanks'
+gem 'foreigner'
 
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'

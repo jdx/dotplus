@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   has_many :attendances
   has_many :attended_events, through: :attendances, source: :event
   has_many :posts, as: :postable
+  has_and_belongs_to_many :badges
 
   validates :twitter, presence: true, uniqueness: true
 

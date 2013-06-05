@@ -76,48 +76,9 @@
     .columns
       %h3 Badges
       %ul.large-block-grid-3
-        %li
-          %h3
-            %i.icon-beer
-            Lusher
-          %p Said something silly after a few brews
-        %li
-          %h3
-            %span.icon- ❄
-            Snowflaker
-          %p RSVPed but did not show up
-        %li
-          %h3
-            %i.icon-thumbs-up
-            Thumber
-          %p Received kudos from another attendee
-        %li
-          %h3
-            %i.icon-fire-extinguisher
-            Flamer
-          %p Started a fiery discussion
-        %li
-          %h3
-            %i.icon-rocket
-            Rocketer
-          %p Attended the first dotplus event in their city
-        %li
-          %h3
-            %i.icon-bullhorn
-            Speaker
-          %p Spoke at an event
-        %li
-          %h3
-            %i.icon-globe
-            Globetrotter
-          %p Attended events in 2 different cities
-        %li
-          %h3
-            %i.icon-trophy
-            Achiever
-          %p Talk of the year award
-        %li
-          %h3
-            %i.icon-github
-            Hacker
-          %p Committed to the dotplus codebase
+        - Badge.all.each do |badge|
+          %li
+            %h3
+              %i{ class: badge.icon }
+              = badge.name
+            %p= badge.description

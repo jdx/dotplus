@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130604021757) do
+ActiveRecord::Schema.define(version: 20130605074228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 20130604021757) do
 
   add_index "attendances", ["event_id"], name: "index_attendances_on_event_id", using: :btree
   add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
+
+  create_table "badges", force: true do |t|
+    t.string   "name",        null: false
+    t.string   "icon",        null: false
+    t.text     "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "badges_users", force: true do |t|
+    t.integer "badge_id", null: false
+    t.integer "user_id",  null: false
+  end
+
+  add_index "badges_users", ["badge_id"], name: "index_badges_users_on_badge_id", using: :btree
+  add_index "badges_users", ["user_id"], name: "index_badges_users_on_user_id", using: :btree
 
   create_table "cities", force: true do |t|
     t.string   "subdomain",  null: false
@@ -123,5 +139,25 @@ ActiveRecord::Schema.define(version: 20130604021757) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["twitter"], name: "index_users_on_twitter", unique: true, using: :btree
+
+  add_foreign_key "attendances", "events", :name => "attendances_event_id_fk"
+  add_foreign_key "attendances", "users", :name => "attendances_user_id_fk"
+
+  add_foreign_key "badges_users", "badges", :name => "_badge_id_fk"
+  add_foreign_key "badges_users", "users", :name => "_user_id_fk"
+
+  add_foreign_key "events", "cities", :name => "events_city_id_fk"
+  add_foreign_key "events", "locations", :name => "events_location_id_fk"
+  add_foreign_key "events", "sponsors", :name => "events_sponsor_id_fk"
+  add_foreign_key "events", "talks", :name => "events_advanced_talk_id_fk", :column => "advanced_talk_id"
+  add_foreign_key "events", "talks", :name => "events_beginner_talk_id_fk", :column => "beginner_talk_id"
+  add_foreign_key "events", "users", :name => "events_organizer_id_fk", :column => "organizer_id"
+
+  add_foreign_key "locations", "cities", :name => "locations_city_id_fk"
+
+  add_foreign_key "posts", "users", :name => "posts_user_id_fk"
+
+  add_foreign_key "talks", "cities", :name => "talks_city_id_fk"
+  add_foreign_key "talks", "users", :name => "talks_user_id_fk"
 
 end
