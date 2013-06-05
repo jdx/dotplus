@@ -19,6 +19,19 @@ class EventPdf < Prawn::Document
     end
   end
 
+  private
+
+  def sheet users
+    users.each_with_index do |user, i|
+      column = i > 3 ? 1 : 0
+      origin = [column * bounds.width/2, bounds.height - ((i % 4) * (167.76 + VGUTTER))]
+      bounding_box(origin, width: bounds.width/2 - GUTTER, height: 167.76) do
+        stroke_bounds
+        nametag user
+      end
+    end
+  end
+
   def nametag user
     image "app/assets/images/logo.png", width: 50, at: [bounds.width-49, bounds.height+1]
     bounding_box([10, cursor-10], width: bounds.width, height: bounds.height) do
@@ -29,17 +42,18 @@ class EventPdf < Prawn::Document
       fill_color "000000"
       text "@#{user.twitter}", size: 20
       event_role = user.event_role(@event)
+      fill_color "DC143C"
+      move_down 5
       text event_role.titleize, size: 20 if event_role
+      fill_color "000000"
+      badges(user)
     end
   end
 
-  def sheet users
-    users.each_with_index do |user, i|
-      column = i > 3 ? 1 : 0
-      origin = [column * bounds.width/2, bounds.height - ((i % 4) * (167.76 + VGUTTER))]
-      bounding_box(origin, width: bounds.width/2 - GUTTER, height: 167.76) do
-        stroke_bounds
-        nametag user
+  def badges(user)
+    bounding_box [0, 70], width: bounds.width, height: 80 do
+      font("vendor/assets/fonts/fontawesome-webfont.ttf") do
+        text user.badges.pluck(:character).join, size: 50
       end
     end
   end
